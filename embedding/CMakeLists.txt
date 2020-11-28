@@ -1,0 +1,11 @@
+ cmake_minimum_required(VERSION 3.0)
+ 
+ INCLUDE_DIRECTORIES("/home/pi/opencv_contrib-3.4.2/modules/xfeatures2d/include")
+ project( main )
+ find_package( OpenCV REQUIRED ) 
+ add_executable( main main.cpp ) 
+ target_link_libraries( main ${OpenCV_LIBS} -lpthread)
+ add_compile_options(-O3)
+ if(OPENCV_XFEATURES2D_FOUND)
+    message("xfeatures2d found")
+ endif()

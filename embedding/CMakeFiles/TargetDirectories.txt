@@ -1,0 +1,3 @@
+/home/pi/embedding/CMakeFiles/rebuild_cache.dir
+/home/pi/embedding/CMakeFiles/main.dir
+/home/pi/embedding/CMakeFiles/edit_cache.dir

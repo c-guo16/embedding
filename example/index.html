@@ -1,0 +1,67 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <img id="cam" width="400"/>
+        <img src="./cam.mjpg" width="400"/>
+        
+        <script>
+            document.getElementById("cam").src = "http://" + window.location.hostname + ":8080/?action=stream";
+        </script>
+        <p>
+            <font id="x1" size="3" color="red">This is some text!</font>
+            <font id="x2" size="3" color="red">This is some text!</font>
+            <font id="x3" size="3" color="red">This is some text!</font>
+            <font id="x4" size="3" color="red">This is some text!</font>
+        </p>
+        <p>
+            <font id="y1" size="3" color="red">This is some text!</font>
+            <font id="y2" size="3" color="red">This is some text!</font>
+            <font id="y3" size="3" color="red">This is some text!</font>
+            <font id="y4" size="3" color="red">This is some text!</font>
+        </p>
+        <p>
+            <font id="xcenter" size="3" color="red">This is some text!</font>
+            <font id="ycenter" size="3" color="red">This is some text!</font>
+        </p>
+        <p>
+            <font id="fps" size="3" color="red">This is some text!</font>
+        </p>
+    </body>
+</html>
+
+<script language="JavaScript">
+    function Refresh()
+    {
+        x1 = document.getElementById("x1");
+        x2 = document.getElementById("x2");
+        x3 = document.getElementById("x3");
+        x4 = document.getElementById("x4");
+        y1 = document.getElementById("y1");
+        y2 = document.getElementById("y2");
+        y3 = document.getElementById("y3");
+        y4 = document.getElementById("y4");
+        xcenter = document.getElementById("xcenter");
+        ycenter = document.getElementById("ycenter");
+        fps = document.getElementById("fps");
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "text", false ); // false 为同步请求
+        xmlHttp.send( null );
+        var js=JSON.parse(xmlHttp.responseText);
+        x1.innerHTML = js['x1'];
+        x2.innerHTML = js['x2'];
+        x3.innerHTML = js['x3'];
+        x4.innerHTML = js['x4'];
+        y1.innerHTML = js['y1'];
+        y2.innerHTML = js['y2'];
+        y3.innerHTML = js['y3'];
+        y4.innerHTML = js['y4'];
+        xcenter.innerHTML = js['xcenter'];
+        ycenter.innerHTML = js['ycenter'];
+        fps.innerHTML = "fps: "+js['fps'];
+        setTimeout('Refresh()',1000); //1秒刷新一次
+    }
+    Refresh();
+
+</script>

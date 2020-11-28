@@ -1,0 +1,3 @@
+/home/pi/Desktop/embedding/testbench/CMakeFiles/rebuild_cache.dir
+/home/pi/Desktop/embedding/testbench/CMakeFiles/DisplayImage.dir
+/home/pi/Desktop/embedding/testbench/CMakeFiles/edit_cache.dir
